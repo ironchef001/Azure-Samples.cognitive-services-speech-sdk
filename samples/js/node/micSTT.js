@@ -6,8 +6,11 @@ const sdk = require("microsoft-cognitiveservices-speech-sdk");
 const wav = require("wav");
 const settings = require('./settings');
 
-const API_KEY = settings.subscriptionKey;
-const region = settings.serviceRegion;
+// const API_KEY = settings.subscriptionKey;
+// const region = settings.serviceRegion;
+
+const API_KEY = process.env.SPEECH_KEY;
+const region = process.env.SPEECH_REGION;
 
 const speechConfig = sdk.SpeechConfig.fromSubscription(
   API_KEY,

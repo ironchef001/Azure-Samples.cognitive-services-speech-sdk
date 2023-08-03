@@ -7,6 +7,7 @@
 Speech recognition samples for the Microsoft Cognitive Services Speech SDK
 """
 
+import os
 import json
 import string
 import time
@@ -28,7 +29,9 @@ except ImportError:
 
 # Set up the subscription info for the Speech Service:
 # Replace with your own subscription key and service region (e.g., "westus").
-speech_key, service_region = "YourSubscriptionKey", "YourServiceRegion"
+# speech_key, service_region = "YourSubscriptionKey", "YourServiceRegion"
+speech_key = os.environ.get('SPEECH_KEY')
+service_region = os.environ.get('SPEECH_REGION')
 
 # Specify the path to an audio file containing speech (mono WAV / PCM with a sampling rate of 16
 # kHz).

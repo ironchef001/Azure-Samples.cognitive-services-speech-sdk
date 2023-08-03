@@ -12,10 +12,18 @@
   // service region (e.g., "centralus"), and
   // the name of the file you want to transcribe
   // through the conversation transcriber.
-  var subscriptionKey = "YourSubscriptionKey";
-  var serviceRegion = "YourServiceRegion"; // e.g., "centralus"
-  var filename = "YourAudioFile.wav"; // 8-channel audio
-  
+  // var subscriptionKey = "YourSubscriptionKey";
+  // var serviceRegion = "YourServiceRegion"; // e.g., "centralus"
+  // var filename = "YourAudioFile.wav"; // 8-channel audio
+
+  const subscriptionKey = process.env.SPEECH_KEY;
+  const serviceRegion = process.env.SPEECH_REGION;
+
+  // TODO: Encountered errors in both audio files.
+  // Error: Single channel audio configuration for ConversationTranscriber is currently under private preview, please contact diarizationrequest@microsoft.com for more details
+  // const filename = "ENG_M.wav"; // 8-channel audio  
+  const filename = "./assessment-audio-sample.m4a"; // 8-channel audio  
+
   // create the push stream we need for the speech sdk.
   var pushStream = sdk.AudioInputStream.createPushStream();
   
